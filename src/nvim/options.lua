@@ -100,7 +100,7 @@ return {
       short_desc=N_("take indent for new line from previous line"),
       type='bool', scope={'buffer'},
       varname='p_ai',
-      defaults={if_true=true}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='autoread', abbreviation='ar',
@@ -128,7 +128,7 @@ return {
       short_desc=N_("\"dark\" or \"light\", used for highlight colors"),
       type='string', scope={'global'},
       varname='p_bg',
-      defaults={if_true="dark"}
+      defaults={if_true="dark"} -- paradigm
     },
     {
       full_name='backspace', abbreviation='bs',
@@ -136,7 +136,7 @@ return {
       type='string', list='onecomma', scope={'global'},
       deny_duplicates=true,
       varname='p_bs',
-      defaults={if_true="indent,eol,start"}
+      defaults={if_true="indent,eol,start"} -- paradigm
     },
     {
       full_name='backup', abbreviation='bk',
@@ -422,7 +422,7 @@ return {
       varname='p_force_off',
       -- pri_mkrc isn't needed here, optval_default()
       -- always returns TRUE for 'compatible'
-      defaults={if_true=false}
+      defaults={if_true=false} -- paradigm
     },
     {
       full_name='complete', abbreviation='cpt',
@@ -555,7 +555,7 @@ return {
       normal_dname_chars=true,
       expand=true,
       varname='p_dict',
-      defaults={if_true=""}
+      defaults={if_true="$HOME/.vim/dictionary"}
     },
     {
       full_name='diff',
@@ -787,7 +787,8 @@ return {
       alloced=true,
       redraw={'current_window'},
       varname='p_fcs',
-      defaults={if_true=''}
+      -- defaults={if_true=''}
+      defaults={if_true='stl:=,stlnc:-'} -- paradigm
     },
     {
       full_name='fixendofline', abbreviation='fixeol',
@@ -804,7 +805,7 @@ return {
       deny_duplicates=true,
       redraw={'current_window'},
       varname='p_fcl',
-      defaults={if_true=""}
+      defaults={if_true=""} -- paradigm
     },
     {
       full_name='foldcolumn', abbreviation='fdc',
@@ -851,7 +852,7 @@ return {
       type='number', scope={'global'},
       redraw={'curswant'},
       varname='p_fdls',
-      defaults={if_true=-1}
+      defaults={if_true=999} -- paradigm
     },
     {
       full_name='foldmarker', abbreviation='fmr',
@@ -868,7 +869,8 @@ return {
       type='string', scope={'window'},
       alloced=true,
       redraw={'current_window'},
-      defaults={if_true="manual"}
+      -- defaults={if_true="manual"}
+      defaults={if_true="syntax"} -- paradigm
     },
     {
       full_name='foldminlines', abbreviation='fml',
@@ -891,7 +893,8 @@ return {
       deny_duplicates=true,
       redraw={'curswant'},
       varname='p_fdo',
-      defaults={if_true="block,hor,mark,percent,quickfix,search,tag,undo"}
+      -- defaults={if_true="block,hor,mark,percent,quickfix,search,tag,undo"}
+      defaults={if_true=""} -- paradigm
     },
     {
       full_name='foldtext', abbreviation='fdt',
@@ -917,7 +920,8 @@ return {
       type='string', list='flags', scope={'buffer'},
       alloced=true,
       varname='p_fo',
-      defaults={if_true=macros('DFLT_FO_VIM')}
+      -- defaults={if_true=macros('DFLT_FO_VIM')}
+      defaults={if_true="jcroql"} -- paradigm
     },
     {
       full_name='formatlistpat', abbreviation='flp',
@@ -971,7 +975,7 @@ return {
         -- Add an extra file name so that grep will always
         -- insert a file name in the match line. */
         if_true="findstr /n $* nul",
-        if_false="grep -n $* /dev/null"
+        if_false="rg --vimgrep"
       }
     },
     {
@@ -1050,7 +1054,7 @@ return {
       short_desc=N_("don't unload buffer when it is |abandon|ed"),
       type='bool', scope={'global'},
       varname='p_hid',
-      defaults={if_true=true}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='highlight', abbreviation='hl',
@@ -1087,7 +1091,7 @@ return {
       type='bool', scope={'global'},
       redraw={'all_windows'},
       varname='p_hls',
-      defaults={if_true=true}
+      defaults={if_true=true} --paradigm
     },
     {
       full_name='icon',
@@ -1109,7 +1113,7 @@ return {
       short_desc=N_("ignore case in search patterns"),
       type='bool', scope={'global'},
       varname='p_ic',
-      defaults={if_true=false}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='imcmdline', abbreviation='imc',
@@ -1347,7 +1351,7 @@ return {
       short_desc=N_("wrap long lines at a blank"),
       type='bool', scope={'window'},
       redraw={'current_window'},
-      defaults={if_true=false}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='lines',
@@ -1393,7 +1397,7 @@ return {
       short_desc=N_("<Tab> and <EOL>"),
       type='bool', scope={'window'},
       redraw={'current_window'},
-      defaults={if_true=false}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='listchars', abbreviation='lcs',
@@ -1403,7 +1407,7 @@ return {
       alloced=true,
       redraw={'current_window'},
       varname='p_lcs',
-      defaults={if_true="tab:> ,trail:-,nbsp:+"}
+      defaults={if_true="tab:>·,trail:·,extends:…,precedes:…,nbsp:&"} -- paradigm
     },
     {
       full_name='loadplugins', abbreviation='lpl',
@@ -1509,7 +1513,7 @@ return {
       short_desc=N_("recognize modelines at start or end of file"),
       type='bool', scope={'buffer'},
       varname='p_ml',
-      defaults={if_true=true}
+      defaults={if_true=false} -- paradigm
     },
     {
       full_name='modelineexpr', abbreviation='mle',
@@ -1623,7 +1627,7 @@ return {
       short_desc=N_("print the line number in front of each line"),
       type='bool', scope={'window'},
       redraw={'current_window'},
-      defaults={if_true=false}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='numberwidth', abbreviation='nuw',
@@ -1712,7 +1716,8 @@ return {
       deny_duplicates=true,
       expand=true,
       varname='p_path',
-      defaults={if_true=".,/usr/include,,"}
+      -- set this per-filetype, not generally by default
+      defaults={if_true=".,,"} -- paradigm
     },
     {
       full_name='preserveindent', abbreviation='pi',
@@ -1825,7 +1830,7 @@ return {
       short_desc=N_("show relative line number in front of each line"),
       type='bool', scope={'window'},
       redraw={'current_window'},
-      defaults={if_true=false}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='remap',
@@ -1869,7 +1874,7 @@ return {
       type='bool', scope={'global'},
       redraw={'statuslines'},
       varname='p_ru',
-      defaults={if_true=true}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='rulerformat', abbreviation='ruf',
@@ -1972,7 +1977,8 @@ return {
       type='string', list='onecomma', scope={'global'},
       deny_duplicates=true,
       varname='p_ssop',
-      defaults={if_true="blank,buffers,curdir,folds,help,tabpages,winsize,terminal"}
+      -- defaults={if_true="blank,buffers,curdir,folds,help,tabpages,winsize,terminal"}
+      defaults={if_true="blank,buffers,curdir,folds,help,options,tabpages,winsize,globals,localoptions,tabpages"} -- paradigm
     },
     {
       full_name='shada', abbreviation='sd',
@@ -2104,7 +2110,8 @@ return {
       short_desc=N_("list of flags, reduce length of messages"),
       type='string', list='flags', scope={'global'},
       varname='p_shm',
-      defaults={if_true="filnxtToOF"}
+      -- defaults={if_true="filnxtToOF"}
+      defaults={if_true="filnxtToOFI"} -- paradigm
     },
     {
       full_name='showbreak', abbreviation='sbr',
@@ -2147,7 +2154,8 @@ return {
       short_desc=N_("message on status line to show current mode"),
       type='bool', scope={'global'},
       varname='p_smd',
-      defaults={if_true=true}
+      -- defaults={if_true=true}
+      defaults={if_true=false} -- paradigm
     },
     {
       full_name='showtabline', abbreviation='stal',
@@ -2177,14 +2185,14 @@ return {
       type='string', scope={'window'},
       alloced=true,
       redraw={'current_window'},
-      defaults={if_true="auto"}
+      defaults={if_true="number"} -- paradigm
     },
     {
       full_name='smartcase', abbreviation='scs',
       short_desc=N_("no ignore case when pattern has uppercase"),
       type='bool', scope={'global'},
       varname='p_scs',
-      defaults={if_true=false}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='smartindent', abbreviation='si',
@@ -2212,7 +2220,7 @@ return {
       short_desc=N_("spell checking"),
       type='bool', scope={'window'},
       redraw={'current_window'},
-      defaults={if_true=false}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='spellcapcheck', abbreviation='spc',
@@ -2221,7 +2229,8 @@ return {
       alloced=true,
       redraw={'current_buffer'},
       varname='p_spc',
-      defaults={if_true="[.?!]\\_[\\])'\"	 ]\\+"}
+      -- defaults={if_true="[.?!]\\_[\\])'\"	 ]\\+"}
+      defaults={if_true=""} -- paradigm
     },
     {
       full_name='spellfile', abbreviation='spf',
@@ -2432,7 +2441,8 @@ return {
       deny_duplicates=true,
       expand=true,
       varname='p_tags',
-      defaults={if_true="./tags;,tags"}
+      -- defaults={if_true="./tags;,tags"}
+      defaults={if_true=""} -- paradigm
     },
     {
       full_name='tagstack', abbreviation='tgst',
@@ -2482,7 +2492,7 @@ return {
       type='number', scope={'buffer'},
       redraw={'current_buffer'},
       varname='p_tw',
-      defaults={if_true=0}
+      defaults={if_true=0} -- paradigm
     },
     {
       full_name='thesaurus', abbreviation='tsr',
@@ -2492,7 +2502,7 @@ return {
       normal_dname_chars=true,
       expand=true,
       varname='p_tsr',
-      defaults={if_true=""}
+      defaults={if_true="$HOME/.vim/thesaurus"}
     },
     {
       full_name='thesaurusfunc', abbreviation='tsrfu',
@@ -2523,14 +2533,15 @@ return {
       short_desc=N_("time out time in milliseconds"),
       type='number', scope={'global'},
       varname='p_tm',
-      defaults={if_true=1000}
+      -- defaults={if_true=1000}
+      defaults={if_true=500} -- paradigm
     },
     {
       full_name='title',
       short_desc=N_("Vim set the title of the window"),
       type='bool', scope={'global'},
       varname='p_title',
-      defaults={if_true=false}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='titlelen',
@@ -2570,7 +2581,8 @@ return {
       type='number', scope={'global'},
       redraw={'ui_option'},
       varname='p_ttm',
-      defaults={if_true=50}
+      -- defaults={if_true=50}
+      defaults={if_true=10} -- paradigm
     },
     {
       full_name='ttyfast', abbreviation='tf',
@@ -2595,7 +2607,7 @@ return {
       short_desc=N_("save undo information in a file"),
       type='bool', scope={'buffer'},
       varname='p_udf',
-      defaults={if_true=false}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='undolevels', abbreviation='ul',
@@ -2749,7 +2761,7 @@ return {
       short_desc=N_("use menu for command line completion"),
       type='bool', scope={'global'},
       varname='p_wmnu',
-      defaults={if_true=true}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='wildmode', abbreviation='wim',
@@ -2757,7 +2769,7 @@ return {
       type='string', list='onecomma', scope={'global'},
       deny_duplicates=false,
       varname='p_wim',
-      defaults={if_true="full"}
+      defaults={if_true="longest:full,full"} -- paradigm
     },
     {
       full_name='wildoptions', abbreviation='wop',
@@ -2854,7 +2866,7 @@ return {
       short_desc=N_("lines wrap and continue on the next line"),
       type='bool', scope={'window'},
       redraw={'current_window'},
-      defaults={if_true=true}
+      defaults={if_true=true} -- paradigm
     },
     {
       full_name='wrapmargin', abbreviation='wm',
